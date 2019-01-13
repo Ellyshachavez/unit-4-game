@@ -1,0 +1,22 @@
+
+body {
+  background:#3b95b2
+}
+
+#background_image {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+
+}
+
+h1 {
+  font-family: 'Fjalla One', sans-serif;
+/* font-family: 'Karla', sans-serif; */
+/* font-family: 'Abril Fatface', cursive; */
+}
+
+
+element.style {
+  width: 50%;
+}
