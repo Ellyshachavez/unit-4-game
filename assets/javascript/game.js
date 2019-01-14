@@ -9,9 +9,14 @@ console.log("connected!")
 //if user score equals computer score add to wins
 // if user goes over computer score add to losses 
 
-var wins;
-var losses;
+var wins = 0;
+var losses = 0;
 var crystalTotal;
+var userScore= 0;
+
+$("#user-score").text(userScore);
+
+//tried a for loop and it didn't work out
 var crystalImages = [$("#crystal-one"),
     $("#crystal-two"),
     $("#crystal-three"), 
@@ -20,33 +25,73 @@ var crystalImages = [$("#crystal-one"),
 var crystalMin = 1;
 var crystalMax = 20;
 
-randomTotal = Math.floor(Math.random() *70 ) + 30;
+//picks random computer number
+randomTotal = Math.floor(Math.random() *25 ) + 25;
 
 $("#random-total").text(randomTotal);
 
 
+//tried for loop, couldn't get values to append to crystals indivudally 
+//created random numbers for each crystal
+crystalOne = Math.floor(Math.random() * (crystalMax - crystalMin + 1) + crystalMin);
+
+crystalTwo = Math.floor(Math.random() * (crystalMax - crystalMin + 1) + crystalMin);
+
+crystalThree = Math.floor(Math.random() * (crystalMax - crystalMin + 1) + crystalMin);
+
+crystalFour = Math.floor(Math.random() * (crystalMax - crystalMin + 1) + crystalMin);
+
+console.log(crystalOne, crystalTwo);
 
 
-//generates 4 random numbers for crystals
-for(var i = 0; i < crystalImages.length; i++) {
+$("#crystal-one").on('click', function(){
+    userScore += crystalOne;
+    $("#user-score").text(userScore); 
+        if (userScore === randomTotal){
+          wins++;
+        }
+        else{
+          losses++;
+        }   
 
-crystalImages[i] =  Math.floor(Math.random() * (crystalMax - crystalMin + 1) + crystalMin) * crystalImages.length;
-crystalImages[i] = parseInt(crystalImages[i]);
-console.log(typeof crystalImages[i]);
+        console.log($("#user-score"));
+})  
 
-var crystal = $("<div>");
-    crystal.attr({
-    "class": 'crystal',
-       "random_total": crystalTotal   
-   });
+$("#crystal-two").on("click", function(){
+    userScore += crystalTwo;
+    $("#user-score").text(userScore); 
+        if (userScore === randomTotal){
+          wins++;
+        }
+        else{
+          losses++;
+        }   
+})  
+
+$("#crystal-three").on("click", function(){
+    userScore += crystalThree;
+    $("#user-score").text(userScore); 
+        if (userScore === randomTotal){
+          wins++;
+        }
+        else{
+          losses++;
+        }   
+})  
 
 
-$("random-total").append($("crystal-total"), crystalImages[i]);
+$("#crystal-four").on("click", function(){
+    userScore += crystalFour;
+    $("#user-score").text(userScore); 
+        if (userScore === randomTotal){
+          wins++;
+        }
+        else {
+          losses++;
+        } 
+}) 
 
-$(".clickImage").on("click", function() {
-    console.log(crystalTotal);
-});
 
-}
+
 
 
