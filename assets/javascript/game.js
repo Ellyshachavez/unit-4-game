@@ -9,8 +9,8 @@ console.log("connected!")
 //if user score equals computer score add to wins
 // if user goes over computer score add to losses 
 
-var wins = 0;
-var losses = 0;
+var wins=0;
+var losses=0;
 var crystalTotal;
 var userScore= 0;
 
@@ -23,7 +23,7 @@ var crystalImages = [$("#crystal-one"),
     $("#crystal-four")
 ]
 var crystalMin = 1;
-var crystalMax = 20;
+var crystalMax = 11;
 
 //picks random computer number
 randomTotal = Math.floor(Math.random() *25 ) + 25;
@@ -32,7 +32,7 @@ $("#random-total").text(randomTotal);
 
 
 //tried for loop, couldn't get values to append to crystals indivudally 
-//created random numbers for each crystal
+//creates random numbers for each crystal
 crystalOne = Math.floor(Math.random() * (crystalMax - crystalMin + 1) + crystalMin);
 
 crystalTwo = Math.floor(Math.random() * (crystalMax - crystalMin + 1) + crystalMin);
@@ -49,9 +49,11 @@ $("#crystal-one").on('click', function(){
     $("#user-score").text(userScore); 
         if (userScore === randomTotal){
           wins++;
+          $("#wins").text(wins);
         }
-        else{
-          losses++;
+        else if ( userScore > randomTotal) {
+          losses++;        
+        $("#losses").text(losses);
         }   
 
         console.log($("#user-score"));
@@ -62,10 +64,12 @@ $("#crystal-two").on("click", function(){
     $("#user-score").text(userScore); 
         if (userScore === randomTotal){
           wins++;
+          $("#wins").text(wins);
         }
-        else{
-          losses++;
-        }   
+        else if ( userScore > randomTotal) {
+            losses++;        
+          $("#losses").text(losses);
+          }  
 })  
 
 $("#crystal-three").on("click", function(){
@@ -73,10 +77,13 @@ $("#crystal-three").on("click", function(){
     $("#user-score").text(userScore); 
         if (userScore === randomTotal){
           wins++;
+          $("#wins").text(wins);
+
         }
-        else{
-          losses++;
-        }   
+        else if ( userScore > randomTotal) {
+            losses++;        
+          $("#losses").text(losses);
+          }   
 })  
 
 
@@ -85,12 +92,13 @@ $("#crystal-four").on("click", function(){
     $("#user-score").text(userScore); 
         if (userScore === randomTotal){
           wins++;
+          $("#wins").text(wins);
         }
-        else {
-          losses++;
-        } 
+        else if ( userScore > randomTotal) {
+            losses++;        
+          $("#losses").text(losses);
+          }  
 }) 
-
 
 
 
