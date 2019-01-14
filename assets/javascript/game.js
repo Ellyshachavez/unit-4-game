@@ -50,10 +50,12 @@ $("#crystal-one").on('click', function(){
         if (userScore === randomTotal){
           wins++;
           $("#wins").text(wins);
+          playAgain();
         }
         else if ( userScore > randomTotal) {
           losses++;        
         $("#losses").text(losses);
+        playAgain();
         }   
 
         console.log($("#user-score"));
@@ -65,10 +67,12 @@ $("#crystal-two").on("click", function(){
         if (userScore === randomTotal){
           wins++;
           $("#wins").text(wins);
+          playAgain();
         }
         else if ( userScore > randomTotal) {
             losses++;        
           $("#losses").text(losses);
+          playAgain();
           }  
 })  
 
@@ -78,11 +82,13 @@ $("#crystal-three").on("click", function(){
         if (userScore === randomTotal){
           wins++;
           $("#wins").text(wins);
+          playAgain();
 
         }
         else if ( userScore > randomTotal) {
             losses++;        
           $("#losses").text(losses);
+          playAgain();
           }   
 })  
 
@@ -93,13 +99,31 @@ $("#crystal-four").on("click", function(){
         if (userScore === randomTotal){
           wins++;
           $("#wins").text(wins);
+          playAgain();
         }
         else if ( userScore > randomTotal) {
             losses++;        
           $("#losses").text(losses);
+          playAgain();
           }  
 }) 
 
 
+function playAgain (){
+    randomTotal = Math.floor(Math.random() *25 ) + 25;
 
+    $("#random-total").text(randomTotal);
+    
+    
+    crystalOne = Math.floor(Math.random() * (crystalMax - crystalMin + 1) + crystalMin);
+
+    crystalTwo = Math.floor(Math.random() * (crystalMax - crystalMin + 1) + crystalMin);
+    
+    crystalThree = Math.floor(Math.random() * (crystalMax - crystalMin + 1) + crystalMin);
+    
+    crystalFour = Math.floor(Math.random() * (crystalMax - crystalMin + 1) + crystalMin);
+
+        userScore = 0;
+        $("#user-score").text(userScore);
+   }
 
